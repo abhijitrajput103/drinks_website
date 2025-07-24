@@ -3,6 +3,9 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const Hero = () => {
   useGSAP(() => {
@@ -16,11 +19,36 @@ const Hero = () => {
       opacity: 1,
       y: 0,
       ease: "power1.inOut",
-    }).to(".hero-text-scroll", {
-      duration: 1,
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      ease: "circ.out",
-    },"-=0.5");
+    })
+      .to(
+        ".hero-text-scroll",
+        {
+          duration: 1,
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          ease: "circ.out",
+        },
+        "-=0.5"
+      )
+      .from(titleSplit.chars, {
+        yPercent: 200,
+        stagger: 0.02,
+        ease: "power2.out",
+      });
+
+    const heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hero-container",
+        start: "1% top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+    heroTl.to(".hero-container", {
+      rotate: 7,
+      scale: 0.9,
+      yPercent: 30,
+      ease: "power1.inOut",
+    });
   });
 
   return (
@@ -31,6 +59,8 @@ const Hero = () => {
           alt="Hero Image"
           width={300}
           height={200}
+          priority
+          style={{ width: "auto", height: "auto" }}
           className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto scale-100 md:scale-150"
         />
         <div className="hero-content opacity-0">
