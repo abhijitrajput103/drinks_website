@@ -4,41 +4,35 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { flavorlists } from "@/constatnts";
+import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FlavorSlider = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [isTablet, setIsTablet] = useState(false);
 
-  useEffect(() => {
-    const checkScreen = () => {
-      setIsTablet(window.innerWidth <= 1024);
-    };
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
-  }, []);
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1024px)",
+  });
 
   useGSAP(() => {
     const scrollAmount =
-      (sliderRef.current?.scrollWidth ?? window.innerWidth) - window.innerWidth;
-
-    if (!isTablet && sliderRef.current) {
+      sliderRef.current ? sliderRef.current.scrollWidth - window.innerWidth : 0;
+    if (!isTablet) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".flavor-section",
           start: "2% top",
-          end: `+=${scrollAmount + 1000}`,
+          end: `+=${scrollAmount + 1500}px`,
           scrub: true,
           pin: true,
         },
       });
 
       tl.to(".flavor-section", {
-        x: `-${scrollAmount + 1000}`,
+        x: `-${scrollAmount + 1500}px`,
         ease: "power1.inOut",
       });
     }
@@ -73,9 +67,7 @@ const FlavorSlider = () => {
         },
         "<"
       );
-
-    ScrollTrigger.refresh();
-  }, [isTablet]);
+  });
 
   return (
     <div ref={sliderRef} className="slider-wrapper">
