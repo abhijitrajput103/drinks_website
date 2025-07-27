@@ -55,28 +55,28 @@ const BenefitSection = () => {
             <ClipPathTitle
               title={"Shelf stable"}
               color={"#faeade"}
-              bg={"#c88e64"}
+              bgColor={"#c88e64"}
               className={"first-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
               title={"Protein + Caffeine"}
               color={"#222123"}
-              bg={"#faeade"}
+              bgColor={"#faeade"}
               className={"second-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
               title={"Infinitely recyclable"}
               color={"#faeade"}
-              bg={"#7F3B2D"}
+              bgColor={"#7F3B2D"}
               className={"third-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
               title={"Lactose free"}
               color={"#2E2D2F"}
-              bg={"#FED775"}
+              bgColor={"#FED775"}
               className={"fourth-title"}
               borderColor={"#222123"}
             />
