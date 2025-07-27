@@ -1,13 +1,14 @@
 'use client';
-import FlavourSection from "./components/FlavorSection";
-import Hero from "./components/Hero";
-import MessageSection from "./components/MessageSection";
+import FlavourSection from "./sections/FlavorSection";
+import Hero from "./sections/Hero";
+import MessageSection from "./sections/MessageSection";
 import gsap from "gsap";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import NutritionSection from "./components/NutritionSection";
-import BenefitSection from "./components/BenefitSection";
-import TestimonialsSection from "./components/TestimonialsSections";
+import NutritionSection from "./sections/NutritionSection";
+import BenefitSection from "./sections/BenefitSection";
+import TestimonialsSection from "./sections/TestimonialsSections";
+import FooterSection from "./sections/FooterSection";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -31,7 +32,7 @@ export default function Home() {
             <BenefitSection/>
             <TestimonialsSection/>
           </div>
-          <div className="h-dvh border border-red-500"></div>
+          <FooterSection/>
         </div>
       </div>
     </>
