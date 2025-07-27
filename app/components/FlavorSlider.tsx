@@ -18,21 +18,22 @@ const FlavorSlider = () => {
   });
 
   useGSAP(() => {
-    const scrollAmount =
-      sliderRef.current ? sliderRef.current.scrollWidth - window.innerWidth : 0;
+    if (!sliderRef.current) return;
+    const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
+    const buffer= 100;
     if (!isTablet) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".flavor-section",
           start: "2% top",
-          end: `+=${scrollAmount + 1500}px`,
+          end: `+=${scrollAmount + buffer}px`,
           scrub: true,
           pin: true,
         },
       });
 
       tl.to(".flavor-section", {
-        x: `-${scrollAmount + 1500}px`,
+        x: `-${scrollAmount + buffer}px`,
         ease: "power1.inOut",
       });
     }
@@ -78,7 +79,7 @@ const FlavorSlider = () => {
         {flavorlists.map((flavor) => (
           <div
             key={flavor.name}
-            className={`relative z-30 w-80 md:w-[80vw] lg:w-[40vw] h-80 md:h-[50vh] lg:h-[70vh] flex-none ${flavor.rotation}`}
+            className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vw] md:h-[50vh] h-80 flex-none ${flavor.rotation}`}
           >
             <Image
               src={`/images/${flavor.color}-bg.svg`}
@@ -103,7 +104,7 @@ const FlavorSlider = () => {
               alt={`${flavor.name} elements`}
               className="elements"
               width={400}
-              height={200}
+              height={400}
             />
             <h1>{flavor.name}</h1>
           </div>

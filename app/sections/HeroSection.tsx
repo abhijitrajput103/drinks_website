@@ -4,10 +4,18 @@ import Image from "next/image";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const Hero = () => {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1024px)",
+  });
+
   useGSAP(() => {
     const titleSplit = SplitText.create(".hero-title", {
       type: "chars",
@@ -54,15 +62,34 @@ const Hero = () => {
   return (
     <section className="bg-main-bg">
       <div className="hero-container">
-        <Image
-          src="/images/static-img.png"
-          alt="Hero Image"
-          width={300}
-          height={200}
-          priority
-          style={{ width: "auto", height: "auto" }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto scale-100 md:scale-150"
-        />
+        {isTablet ? (
+          <>
+            {isMobile && (
+              <Image
+                src="/images/hero-bg.png"
+                alt="hero bnr"
+                className="absolute bottom-40 size-full object-cover"
+                height={300}
+                width={300}
+              />
+            )}
+            <Image
+              src="/images/hero-img.png"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
+              alt="hero img"
+              height={300}
+              width={300}
+            />
+          </>
+        ) : (
+          <video
+            src="/videos/hero-bg.mp4"
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            playsInline
+          />
+        )}
         <div className="hero-content opacity-0">
           <div className="overflow-hidden">
             <h1 className="hero-title">Freaking Delicious</h1>

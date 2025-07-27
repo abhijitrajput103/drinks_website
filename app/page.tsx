@@ -1,6 +1,6 @@
 'use client';
 import FlavourSection from "./sections/FlavorSection";
-import Hero from "./sections/Hero";
+import Hero from "./sections/HeroSection";
 import MessageSection from "./sections/MessageSection";
 import gsap from "gsap";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
