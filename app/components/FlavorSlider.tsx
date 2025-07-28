@@ -32,7 +32,7 @@ const FlavorSlider = () => {
       });
 
       tl.to(".flavor-section", {
-        x: `-${scrollAmount+1200}px`,
+        x: `-${scrollAmount + 1200}px`,
         ease: "power1.inOut",
       });
     }
@@ -72,8 +72,10 @@ const FlavorSlider = () => {
   return (
     <div ref={sliderRef} className="slider-wrapper">
       <div
-        className="flavors"
-        style={{ width: `${flavorlists.length * 40}vw` }}
+        className="flavors pr-16"
+        style={{
+          width: `${flavorlists.length * 45}vw`,
+        }}
       >
         {flavorlists.map((flavor) => (
           <div
@@ -105,7 +107,9 @@ const FlavorSlider = () => {
               width={400}
               height={400}
             />
-            <h1>{flavor.name}</h1>
+            <h1 className="absolute bottom-4 left-4 text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              {flavor.name}
+            </h1>
           </div>
         ))}
       </div>

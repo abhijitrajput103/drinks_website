@@ -90,7 +90,10 @@ const NutritionSection = () => {
               className="nutrition-text-scroll place-self-start"
             >
               <div className="bg-yellow-brown pb-5 md:pt-0 pt-3 md:px-5 px-3">
-                <h2 className="text-milk-yellow">Body Good</h2>
+               <h2 className="text-milk-yellow text-[9vw] sm:text-[7vw] md:text-[6vw] lg:text-[4.5vw] xl:text-6xl font-extrabold leading-tight tracking-tight">
+  Body Good
+</h2>
+
               </div>
             </div>
           </div>

@@ -45,13 +45,13 @@ const BenefitSection = () => {
   return (
     <section className="benefit-section">
       <div className="container mx-auto pt-20">
-        <div className="col-center">
-          <p>
+        <div className="col-center text-center">
+          <p className="text-lg md:text-xl lg:text-2xl font-semibold">
             Unlock the Advantages: <br />
             Explore the Key Benefits of Choosing SPYLT
           </p>
 
-          <div className="mt-20 col-center">
+          <div className="mt-20 col-center gap-8">
             <ClipPathTitle
               title={"Shelf stable"}
               color={"#faeade"}
@@ -82,8 +82,10 @@ const BenefitSection = () => {
             />
           </div>
 
-          <div className="md:mt-0 mt-10">
-            <p>And much more ...</p>
+          <div className="md:mt-8 mt-6">
+            <p className="text-sm md:text-base font-medium">
+              And much more ...
+            </p>
           </div>
         </div>
       </div>

@@ -69,30 +69,34 @@ const MessageSection = () => {
 
   return (
     <section className="message-content">
-      <div className="container mx-auto flex-center py-28 relative">
+      <div className="container mx-auto flex-col items-center justify-center py-20 sm:py-28 px-4 sm:px-8 relative">
         <div className="w-full h-full">
-          <div className="msg-wrapper">
-            <h1 className="first-message">Stir up your fearless past and</h1>
+          <div className="msg-wrapper flex flex-col justify-center items-center text-center gap-10 sm:gap-14 md:gap-24">
+            <h1 className="first-message text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[6rem] 2xl:text-[8.5rem] font-bold uppercase text-[#faeade10] leading-tight tracking-tight">
+              Stir up your fearless past and
+            </h1>
 
             <div
               style={{
                 clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
               }}
-              className="msg-text-scroll"
+              className="msg-text-scroll rotate-[3deg] absolute z-10"
             >
-              <div className="bg-light-brown md:pb-5 pb-3 px-5">
-                <h2 className="text-red-brown">Fuel Up</h2>
+              <div className="bg-light-brown px-4 py-2 sm:px-6 sm:py-4">
+                <h2 className="text-red-brown text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+                  Fuel Up
+                </h2>
               </div>
             </div>
 
-            <h1 className="second-message">
+            <h1 className="second-message text-[2rem] sm:text-[3rem] md:text-[5rem] lg:text-[6rem] 2xl:text-[8.5rem] font-bold uppercase text-[#faeade10] leading-tight tracking-tight">
               your future with every gulp of Perfect Protein
             </h1>
           </div>
 
-          <div className="flex-center md:mt-20 mt-10">
-            <div className="max-w-md px-10 flex-center overflow-hidden">
-              <p>
+          <div className="flex justify-center mt-10 md:mt-20">
+            <div className="max-w-md px-5 sm:px-10 text-center">
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed text-milk font-paragraph">
                 Rev up your rebel spirit and feed the adventure of life with
                 SPYLT, where you’re one chug away from epic nostalgia and
                 fearless fun.

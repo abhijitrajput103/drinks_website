@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
@@ -43,24 +43,28 @@ const FlavorTitle = () => {
   });
 
   return (
-    <div className="general-title col-center h-full 2xl:gap-32 xl:gap-24 gap-16">
-      <div className="overflow-hidden 2xl:py-0 py-3 first-text-split">
-        <h1>We have 6</h1>
+    <div className="general-title col-center h-full gap-10 md:gap-16 xl:gap-24 2xl:gap-32">
+      <div className="overflow-hidden py-2 md:py-3 first-text-split">
+        <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-semibold">
+          We have 6
+        </h1>
       </div>
 
       <div
-        style={{
-          clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
-        }}
+        style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
         className="flavor-text-scroll"
       >
-        <div className="bg-mid-brown pb-5 2xl:pt-0 pt-3 2xl:px-5 px-3">
-          <h2 className="text-milk">freaking</h2>
+        <div className="bg-mid-brown pt-4 pb-6 px-6 md:px-10 text-center">
+          <h2 className="text-milk text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight tracking-tight">
+            freaking
+          </h2>
         </div>
       </div>
 
-      <div className="overflow-hidden 2xl:py-0 py-3 second-text-split">
-        <h1>delicious flavors</h1>
+      <div className="overflow-hidden py-2 md:py-3 second-text-split">
+        <h1 className="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl font-semibold">
+          delicious flavors
+        </h1>
       </div>
     </div>
   );

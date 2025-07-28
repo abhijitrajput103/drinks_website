@@ -273,6 +273,13 @@ body::-webkit-scrollbar {
 .spin-circle {
   animation: spin 20s linear infinite;
 }
+/* .no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+} */
 @keyframes spin {
   from {
     transform: rotate(0deg);
