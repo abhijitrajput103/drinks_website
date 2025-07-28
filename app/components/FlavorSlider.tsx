@@ -20,7 +20,7 @@ const FlavorSlider = () => {
   useGSAP(() => {
     if (!sliderRef.current) return;
     const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
-    const buffer= 100;
+    const buffer= 900;
     if (!isTablet) {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -73,7 +73,7 @@ const FlavorSlider = () => {
   return (
     <div ref={sliderRef} className="slider-wrapper">
       <div
-        className="flavors flavor-section"
+        className="flavors"
         style={{ width: `${flavorlists.length * 40}vw` }}
       >
         {flavorlists.map((flavor) => (
