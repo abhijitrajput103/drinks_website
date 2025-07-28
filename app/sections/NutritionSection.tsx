@@ -68,7 +68,7 @@ const NutritionSection = () => {
         alt="Nutrition"
         className="w-full object-cover"
         width={500}
-        height={300}
+        height={500}
       />
 
       <Image
@@ -76,7 +76,7 @@ const NutritionSection = () => {
         alt="Nutrition Info"
         className="big-img"
         width={500}
-        height={300}
+        height={500}
       />
 
       <div className="flex md:flex-row flex-col justify-between md:px-10 px-5 mt-14 md:mt-0">

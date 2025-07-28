@@ -20,20 +20,19 @@ const FlavorSlider = () => {
   useGSAP(() => {
     if (!sliderRef.current) return;
     const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
-    const buffer= 900;
     if (!isTablet) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".flavor-section",
           start: "2% top",
-          end: `+=${scrollAmount + buffer}px`,
+          end: `+=${scrollAmount + 1200}px`,
           scrub: true,
           pin: true,
         },
       });
 
       tl.to(".flavor-section", {
-        x: `-${scrollAmount + buffer}px`,
+        x: `-${scrollAmount+1200}px`,
         ease: "power1.inOut",
       });
     }

@@ -5,16 +5,22 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { ScrollTrigger } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
+import { useEffect, useState } from "react";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const Hero = () => {
+  const [isClient, setIsClient] = useState(false);
   const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
   });
   const isTablet = useMediaQuery({
     query: "(max-width: 1024px)",
   });
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   useGSAP(() => {
     const titleSplit = SplitText.create(".hero-title", {
@@ -62,7 +68,15 @@ const Hero = () => {
   return (
     <section className="bg-main-bg">
       <div className="hero-container">
-        {isTablet ? (
+        {isClient && !isTablet ? (
+          <video
+            src="/videos/hero-bg.mp4"
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            playsInline
+          />
+        ) : (
           <>
             {isMobile && (
               <Image
@@ -81,14 +95,6 @@ const Hero = () => {
               width={300}
             />
           </>
-        ) : (
-          <video
-            src="/videos/hero-bg.mp4"
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-            playsInline
-          />
         )}
         <div className="hero-content opacity-0">
           <div className="overflow-hidden">
